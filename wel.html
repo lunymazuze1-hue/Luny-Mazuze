@@ -1,0 +1,1196 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meu Portfólio</title>
+
+
+    <style>
+
+        :root {
+            --menu: #7a3b2e;
+            --menu-escuro: #4d261f;
+            --menu-claro: #b86b58;
+            --menu-suave: #f3d6cd;
+            --fundo: #fffaf7;
+            --card: #ffffff;
+            --titulo: #332927;
+            --texto: #3a322f;
+            --linha: rgba(122, 59, 46, 0.12);
+            --sombra: rgba(122, 59, 46, 0.14);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 20px;
+            background: radial-gradient(circle at top, #fffaf7 0%, #fff5f1 30%, #f7efe9 100%);
+            color: var(--texto);
+            line-height: 1.6;
+        }
+
+        ::selection {
+            background: rgba(122, 59, 46, 0.18);
+        }
+
+        a {
+            transition: all 0.3s ease;
+        }
+
+        header {
+            background: var(--menu);
+            backdrop-filter: blur(10px);
+            padding: 12px 6%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 22px rgba(122, 59, 46, 0.35);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        nav h2 {
+            color: white;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            margin: 0;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 10px;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+            padding: 8px 12px;
+            border-radius: 999px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            left: 12px;
+            bottom: 6px;
+            width: 0;
+            height: 2px;
+            background: var(--menu-suave);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: calc(100% - 24px);
+        }
+
+        nav ul li a:hover {
+            color: var(--menu-suave);
+            background: rgba(255,255,255,0.08);
+        }
+
+          .inicio {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 8% 60px;
+            gap: 50px;
+            background: linear-gradient(135deg, #f9efe9 0%, #fffaf7 50%, #f4dfd7 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .inicio::before {
+            content: "";
+            position: absolute;
+            inset: auto -80px -80px auto;
+            width: 260px;
+            height: 260px;
+            background: rgba(27, 117, 255, 0.12);
+            border-radius: 50%;
+            filter: blur(20px);
+        }
+
+        .inicio h1 {
+            font-size: clamp(2.8rem, 4vw, 5rem);
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+       
+        .abanar {
+            animation: abanar 1.2s infinite ease-in-out;
+        }
+
+        @keyframes abanar {
+
+            0% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(4deg);
+            }
+
+            50% {
+                transform: rotate(-4deg);
+            }
+
+            75% {
+                transform: rotate(4deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+
+        }
+
+
+        .inicio p {
+            font-size: 22px;
+            margin-bottom: 25px;
+        }
+        .texto-inicio{
+            width: min(100%, 620px);
+            position: relative;
+            z-index: 1;
+            animation: fadeUp 0.8s ease forwards;
+        }
+        .texto-inicio h3{
+            font-size: clamp(1.5rem, 2vw, 2rem);
+            margin-bottom: 10px;
+            color: var(--menu);
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.4s forwards;
+        }
+        .texto-inicio h1{
+            font-size: 55px;
+            color: var(--menu);
+            animation: letras 1s ease-out forwards, abanar 0.8s infinite 1.8s;
+            opacity: 0;
+            transform: translateY(18px);
+        }
+        .texto-inicio em {
+            color: var(--texto);
+            display: inline-block;
+            max-width: 560px;
+        }
+          .foto-inicio{ 
+            width: min(100%, 420px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            animation: float 4s ease-in-out infinite;
+        }
+         .foto-inicio img{
+            width: 350px;
+            height: 430px;
+            object-fit: cover;
+            border-radius: 28px;
+            box-shadow: 0 25px 60px rgba(20, 108, 255, 0.28);
+            border: 6px solid rgba(255,255,255,0.8);
+            transition: 0.4s ease-in-out;
+        }
+        .foto-inicio img:hover{
+            transform: scale(1.05) rotate(-2deg);
+        }
+        
+        .botao {
+            background: linear-gradient(135deg, var(--menu), var(--menu-claro));
+            color: white;
+            padding: 15px 28px;
+            border-radius: 999px;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 12px 25px rgba(122, 59, 46, 0.2);
+            margin-top: 20px;
+        }
+
+        .botao:hover {
+            background: linear-gradient(135deg, var(--menu-escuro), var(--menu-claro));
+            transform: translateY(-2px); 
+        }
+          
+        section {
+            padding: 90px 8%;
+        }
+        .inicio {margin-bottom: 100px;}
+
+        section > h2 {
+            text-align: center;
+            color: var(--titulo);
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        section > h2::after {
+            content: "";
+            display: block;
+            width: 90px;
+            height: 4px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--menu), var(--menu-claro));
+            margin: 12px auto 0;
+        }
+
+
+
+
+        .sobre-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1000px;
+            margin: auto;
+            background: rgba(255,255,255,0.7);
+            border: 1px solid var(--linha);
+            border-radius: 28px;
+            padding: 30px;
+            box-shadow: 0 16px 40px var(--sombra);
+        }
+
+        .sobre-container img {
+            width: 300px;
+            height: 300px;
+             object-fit: cover;
+            border-radius: 24px;
+            box-shadow: 0 18px 35px rgba(13, 94, 207, 0.18);
+            transition: 0.4s ease-in-out;
+        }
+        .sobre-container img:hover{
+            transform: scale(1.04) rotate(-1deg);
+        }
+
+        .sobre-texto {
+            flex: 1;
+        }
+
+        .sobre-texto h3 {
+            color: var(--menu);
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .sobre-texto p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+
+    
+
+        .projetos-container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .projeto {
+            position: relative;
+            width: 300px;
+            height: 390px;
+            perspective: 1000px;
+        }
+
+        .projeto-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s ease;
+            transform-style: preserve-3d;
+        }
+
+        .projeto:hover .projeto-inner {
+            transform: rotateY(180deg);
+        }
+
+        .projeto-frente,
+        .projeto-verso {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 16px 30px rgba(122, 59, 46, 0.12);
+            border: 1px solid var(--linha);
+            background: var(--card);
+        }
+
+        .projeto-frente {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .projeto-verso {
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, var(--menu-escuro), var(--menu-claro));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 28px 22px;
+        }
+
+        .projeto-capa {
+            height: 190px;
+            overflow: hidden;
+            background: #f3f8ff;
+            flex-shrink: 0;
+        }
+
+        .projeto-capa img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .projeto:hover .projeto-capa img {
+            transform: scale(1.08);
+        }
+
+        .capa-1 {
+            background: #f3f8ff;
+        }
+
+        .capa-2 {
+            background: #fdf1f7;
+        }
+
+        .capa-3 {
+            background: #effcf9;
+        }
+
+        .projeto-info {
+            padding: 20px 18px 18px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .projeto h3 {
+            color: var(--menu);
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .projeto p {
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: auto;
+        }
+
+        .projeto-verso h3 {
+            color: white;
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+        }
+
+        .projeto-verso p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 20px;
+        }
+
+        .projeto a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            background: white;
+            color: var(--menu);
+            padding: 12px 22px;
+            border-radius: 999px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+            box-shadow: 0 12px 22px rgba(0, 0, 0, 0.12);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .projeto a:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 16px 28px rgba(0, 0, 0, 0.18);
+            background: #fff4f1;
+        }
+
+        
+
+        .habilidades-container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 25px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .habilidade {
+            position: relative;
+            width: 250px;
+            min-width: 220px;
+            height: 220px;
+            flex: 1;
+            cursor: pointer;
+            perspective: 1000px;
+        }
+
+        .habilidade-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+
+            transform-style: preserve-3d;
+        }
+
+        .habilidade:hover .habilidade-inner {
+            transform: rotateY(180deg);
+        }
+
+        .habilidade-frente,
+        .habilidade-verso {
+            position: absolute;
+            inset: 0;
+            border-radius: 22px;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 24px;
+            box-shadow: 0 14px 30px rgba(122, 59, 46, 0.10);
+            border: 1px solid var(--linha);
+        }
+
+        .habilidade-frente {
+            background: linear-gradient(180deg, #ffffff 0%, #fff5f1 100%);
+            color: var(--texto);
+        }
+
+        .habilidade-verso {
+            background: linear-gradient(135deg, var(--menu-escuro), var(--menu-claro));
+            color: white;
+            transform: rotateY(180deg);
+        }
+       
+        .habilidade-frente h3 {
+            color: var(--menu);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .habilidade-frente p,
+        .habilidade-verso p {
+            line-height: 1.6;
+            color: inherit;
+            margin: 0;
+        }
+
+        .habilidade-verso h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .jornada-section {
+            max-width: 900px;
+            margin: 90px auto;
+            padding: 0 6%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h1 {
+            color: var(--titulo);
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            margin-bottom: 10px;
+        }
+
+        .section-title h1 span {
+            color: var(--menu);
+        }
+
+        .section-title p {
+            color: #5b4f4b;
+        }
+
+        .timeline {
+            position: relative;
+            margin-left: 25px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 35px;
+            padding-left: 30px;
+            border-left: 3px solid rgba(122, 59, 46, 0.2);
+        }
+
+        .timeline-item:hover {
+            transform: translateX(-8px);
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -9px;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--menu), var(--menu-claro));
+            box-shadow: 0 0 0 5px rgba(122, 59, 46, 0.12);
+        }
+
+        .timeline-ano {
+            display: inline-block;
+            font-weight: bold;
+            color: var(--menu);
+            margin-bottom: 8px;
+        }
+
+        .timeline-content h3 {
+            color: var(--titulo);
+            margin-bottom: 8px;
+            font-size: 1.4rem;
+        }
+
+        .timeline-content p {
+            color: #4d4d4d;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 700px) {
+            .habilidades-container {
+                flex-wrap: wrap;
+            }
+
+            .timeline {
+                margin-left: 16px;
+            }
+
+            .timeline-item {
+                padding-left: 22px;
+            }
+        }
+        
+
+        #inicio {
+            background: linear-gradient(135deg, #f9efe9 0%, #fffaf7 50%, #f5e2d9 100%);
+        }
+
+        #sobre {
+            background: linear-gradient(180deg, #f8efe9 0%, #ffffff 100%);
+        }
+
+        #projetos {
+            background: linear-gradient(180deg, #f9f2ee 0%, #ffffff 100%);
+        }
+
+        #habilidades {
+            background: linear-gradient(180deg, #f9f0eb 0%, #ffffff 100%);
+        }
+
+        #contacto {
+            background: linear-gradient(180deg, #f8efe9 0%, #ffffff 100%);
+        }
+
+        .texto-contacto {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+            color: #4c4c4c;
+        }
+
+        form {
+            background: rgba(255,255,255,0.9);
+            max-width: 550px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 24px;
+            box-shadow: 0 18px 40px rgba(122, 59, 46, 0.08);
+            border: 1px solid var(--linha);
+        }
+
+        form label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 7px;
+            font-weight: bold;
+            color: var(--titulo);
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid var(--linha);
+            border-radius: 12px;
+            font-size: 15px;
+            background: #fffaf8;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        form input:focus,
+        form textarea:focus {
+            outline: none;
+            border-color: var(--menu);
+            box-shadow: 0 0 0 4px rgba(122, 59, 46, 0.08);
+        }
+
+        form textarea {
+            height: 130px;
+            resize: none;
+        }
+
+        form button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--menu), var(--menu-claro));
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 12px 25px rgba(122, 59, 46, 0.2);
+        }
+
+        form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 30px rgba(122, 59, 46, 0.25);
+        }
+        
+        footer {
+            background: var(--menu);
+            color: white;
+            text-align: center;
+            padding: 22px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes letras {
+            0% {
+                opacity: 0;
+                transform: translateY(25px);
+                filter: blur(8px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes abanar {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(4deg); }
+            50% { transform: rotate(-4deg); }
+            75% { transform: rotate(4deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+             @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .inicio {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .inicio h1 {
+                font-size: 38px;
+            }
+
+            .sobre-container {
+                flex-direction: column;
+                text-align: center;
+                padding: 22px 18px;
+            }
+
+            .sobre-container img {
+                width: 250px;
+                height: 250px;
+            }
+
+            .texto-inicio {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+ <header>
+
+        <nav>
+
+            <h2><em>Luchana Mazuze</em></h2>
+
+            <ul>
+
+                <li>
+                    <a href="#inicio"><em>Início</em></a>
+                </li>
+
+                <li>
+                    <a href="#sobre"><em>Sobre Mim</em></a>
+                </li>
+
+                <li>
+                    <a href="#projetos"><em>Projetos</em></a>
+                </li>
+
+                <li>
+                    <a href="#habilidades"><em>Habilidades</em></a>
+                </li>
+                  <li>
+                    <a href="#jornada"><em>Minha Jornada</em></a>
+                </li>
+                <li>
+                    <a href="#contacto"><em>Contacto</em></a>
+                </li>
+               
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    
+
+    <section id="inicio" class="inicio">
+    <div class="texto-inicio">
+
+        <h1 class="abanar">
+            <em>Olá, eu sou a Luchana!</em>
+        </h1>
+<h3><em>Seja bem vindo ao meu Portfolio</em></h3>
+        <em>Ola! Meu nome e Luchana. Sou estudante e tenho interesse pela area de 
+                informatica e tecnologia. Gosto de aprender coisas novas e desenvolver os
+                meus conhecimentos.
+            Técnica de Suporte Informático, poetisa e amante da cultura</em>
+
+        <a href="#sobre" class="botao">
+            Conheça-me 
+        </a>
+    </div>
+        
+        <div class="foto-inicio img">
+         <img src="IMG-20260910-WA0248.jpg" alt="Minha foto" >
+         </div>
+
+    </section>
+    <section></section>
+    <section id="sobre">
+
+        <h2><em>Sobre Mim</em></h2>
+
+        <div class="sobre-container">
+
+            <img
+                src="IMG-20260901-WA0051.jpg"
+                alt="Minha foto"
+            >
+
+            <div class="sobre-texto">
+
+                <h3><em>Quem sou eu?</em></h3>
+
+                <p>
+                   <em> Olá! O meu nome é Luchana Mazuze. Sou estudante
+                    da área de informática e tenho interesse
+                    em tecnologia, desenvolvimento web 
+                    suporte informático, Poetisa e escritora.
+                    Moro no distrito de Marracuene, bairro 29 de Setembro.
+                    Tenho 17 anos de idade, e tenho como objectivo ajudar e crescer mais na area de suporte informatico,
+                    especialmente na <strong>de redes e comunicacao</strong>.</em>
+                </p>
+
+                <p>
+                   <em>Gosto de aprender coisas novas, criar
+                    projetos e desenvolver as minhas
+                    habilidades na área de informática.</em>
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+    <section id="projetos">
+
+        <h2><em>Meus Projetos</em></h2>
+        <div class="projetos-container">
+            <div class="projeto">
+                <div class="projeto-inner">
+                    <div class="projeto-frente">
+                        <div class="projeto-capa capa-1">
+                            <img src="istockphoto-2212360504-1024x1024.jpg" alt="Projecto de site em desenvolvimento">
+                        </div>
+                        <div class="projeto-info">
+                            <h3>Site</h3>
+                            <p>
+                                Desenvolvimento de páginas web usando HTML e CSS,
+                                com visual moderno e organização eficiente.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="projeto-verso">
+                        <h3>Site</h3>
+                        <p>Visual elegante e funcional.</p>
+                        <a href="https://sites.google.com/view/luchanamazuze?usp=sharing" target="_blank" rel="noopener noreferrer">
+                            Abrir projeto
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projeto">
+                <div class="projeto-inner">
+                    <div class="projeto-frente">
+                        <div class="projeto-capa capa-2">
+                            <img src="IMG-20260812-WA0279.jpg" alt="Bilhete de identidade pessoal">
+                        </div>
+                        <div class="projeto-info">
+                            <h3>Bilhete de Identidade</h3>
+                            <p>
+                                Criação de um bilhete de identidade pessoal
+                                utilizando HTML e CSS.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="projeto-verso">
+                        <h3>Bilhete</h3>
+                        <p>Design personalizado e criativo.</p>
+                        <a href="BI.html" target="_blank" rel="noopener noreferrer">Abrir projeto</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projeto">
+                <div class="projeto-inner">
+                    <div class="projeto-frente">
+                        <div class="projeto-capa capa-3">
+                            <img src="IMG-20260509-WA0162.jpg" alt="Página de poemas e reflexões">
+                        </div>
+                        <div class="projeto-info">
+                            <h3>Poemas</h3>
+                            <p>
+                                Página dedicada a poemas e reflexões, com um estilo
+                                simples e acolhedor.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="projeto-verso">
+                        <h3>Poemas</h3>
+                        <p>Uma página inspiradora e acolhedora.</p>
+                        <a href="poemas.html" target="_blank" rel="noopener noreferrer">Abrir projeto</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+     
+    <section id="habilidades">
+
+        <h2>
+            <span>H</span>
+             <span>a</span>
+            <span>b</span>
+        <span>i</span>
+    <span>l</span>
+<span>i</span>
+<span>d</span>
+<span>a</span>
+<span>d</span>
+<span>e</span>
+<span>s</span>
+</h2>
+
+        <div class="habilidades-container">
+            <div class="habilidade">
+                <div class="habilidade-inner">
+                    <div class="habilidade-frente">
+                        <h3>HTML</h3>
+                       
+                    </div>
+                    <div class="habilidade-verso">
+                        <h3>HTML</h3>
+                        <p> Criacao de paginas HTML e sites</p>
+                       
+                    </div>
+                </div>
+            </div>
+
+            <div class="habilidade">
+                <div class="habilidade-inner">
+                    <div class="habilidade-frente">
+                        <h3>CSS</h3>
+                       
+                    </div>
+                    <div class="habilidade-verso">
+                        <h3>CSS</h3>
+                        <p>Dou vida aos layouts com cores, responsividade e visual moderno.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="habilidade">
+                <div class="habilidade-inner">
+                    <div class="habilidade-frente">
+                        <h3>Informática</h3>
+                       
+                    </div>
+                    <div class="habilidade-verso">
+                        <h3>Informática</h3>
+                        <p>Tenho base em sistemas, organização digital e resolução de problemas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="habilidade">
+                <div class="habilidade-inner">
+                    <div class="habilidade-frente">
+                        <h3>Suporte Informático</h3>
+                       
+                    </div>
+                    <div class="habilidade-verso">
+                        <h3>Suporte</h3>
+                        <p>Ajudo a resolver dificuldades básicas de computador e tecnologias do dia a dia.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+     <section id="jornada" class="jornada-section">
+        <div class="section-title">
+            <h1>Minha <span>Jornada</span></h1>
+            <p>Trajetória na Poesia e desenvolvimento técnico</p>
+        </div>
+        
+        <div class="formacao-container">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-ano">2025</span>
+                        <h3>Escola Secundaria Gwaza Mutihne</h3>
+                        <p>Conclui o ensino secundario</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-ano">2020</span>
+                        <h3>Aulas de Canto e Dança </h3>
+                        <p>Desenvolvimento da técnica vocal e coreografia.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-ano">2026 — Atualmente</span>
+                        <h3>Estudos em Desenvolvimento Web</h3>
+                        <p>Criação de projetos integrando Poesia, tecnologia, HTML, CSS e plataformas digitais.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+      <section id="contacto">
+
+        <h2>Entre em Contacto</h2>
+
+        <p class="texto-contacto">
+            Preencha o formulário abaixo para entrar
+            em contacto comigo.
+        </p>
+
+
+        <form onsubmit="enviarWhatsApp(); return false;">
+
+
+            <label>
+                Nome:
+            </label>
+
+            <input
+                type="text"
+                id="nome"
+                placeholder="Digite o seu nome"
+                required
+            >
+
+
+            <label>
+                Email:
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Digite o seu email"
+                required
+            >
+
+
+            <label>
+                Mensagem:
+            </label>
+
+            <textarea
+                id="mensagem"
+                placeholder="Escreva a sua mensagem"
+                required
+            ></textarea>
+
+
+            <button type="submit">
+                Enviar pelo WhatsApp
+            </button>
+
+        </form>
+
+    </section>
+
+
+
+
+    <footer>
+
+        <p>
+            © 2026 Com Afzal nao tem como nao ser exprimido
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        function enviarWhatsApp() {
+
+            var nome = document.getElementById("nome").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var mensagem = document.getElementById("mensagem").value.trim();
+
+            var numeroWhatsApp = "258842381694";
+
+            var texto =
+                "Olá! Luchana,%0A%0A" +
+                "Nome: " + nome + "%0A" +
+                "Email: " + email + "%0A%0A" +
+                "Mensagem: " + mensagem;
+
+            var link =
+                "https://wa.me/" +
+                numeroWhatsApp +
+                "?text=" +
+                encodeURIComponent(texto);
+
+            window.open(link, "_blank");
+        }
+
+    </script>
+
+
+</body>
+</html>
